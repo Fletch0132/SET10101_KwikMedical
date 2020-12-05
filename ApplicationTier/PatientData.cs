@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationTier
 {
-    class Trial
+    class PatientData
     {
-      
     }
 }
