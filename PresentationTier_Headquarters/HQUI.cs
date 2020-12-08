@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PresentationTier_Headquarters
 {
-    public partial class Form1 : Form
+    public partial class HQUI : Form
     {
-        public Form1()
+        public HQUI()
         {
             InitializeComponent();
         }
