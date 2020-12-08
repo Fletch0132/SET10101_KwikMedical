@@ -1,0 +1,75 @@
+﻿<Window x:Class="PresentationTier_HQ.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationTier_HQ"
+        mc:Ignorable="d"
+        Title="KwikMedical" Height="420" Width="550">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>      <!--Border 0-->
+            <ColumnDefinition Width="150"/>     <!--Labels 1-->
+            <ColumnDefinition Width="250"/>     <!--TextBoxes 2-->
+            <ColumnDefinition Width="100"/>     <!--Button(s) 3-->
+            <ColumnDefinition Width="20"/>      <!--Border 4-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>        <!--Border 0-->
+            <RowDefinition Height="60"/>        <!--NHSRegNo 1-->
+            <RowDefinition Height="60"/>        <!--FName 2-->
+            <RowDefinition Height="60"/>        <!--LName 3-->
+            <RowDefinition Height="60"/>        <!--Address 4-->
+            <RowDefinition Height="110"/>       <!--MedicalCondition 5-->
+            <RowDefinition Height="20"/>        <!--Border 6-->
+        </Grid.RowDefinitions>
+        
+        <!--NHSRegNo-->
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">
+                <TextBlock TextWrapping="WrapWithOverflow">NHS Registration Number:</TextBlock>
+            </Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtNHSReg" Width="220" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--FName-->
+        <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">First Name:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtFirstN" Width="220" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--LName-->
+        <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Last Name:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtLastN" Width="220" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--Address-->
+        <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Address:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtAddress" Width="220" Height="40" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--MedicalCon-->
+        <StackPanel Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Medical Condition:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtMedical" Width="220" Height="90" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBox>
+        </StackPanel>
+        
+        <!--BUTTON-->
+        <!--Search-->
+        <StackPanel Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnSearch" Width="80">Search</Button>
+        </StackPanel>
+    </Grid>
+</Window>
