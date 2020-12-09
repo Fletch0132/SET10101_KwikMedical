@@ -31,8 +31,8 @@ namespace PresentationTier_HQ
             InitializeComponent();
         }
 
-        //Validate the input data to store in Patient.cs
-        public void ValidateData()
+        //Search button clicked
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             Patient patient = new Patient();
 
@@ -41,10 +41,10 @@ namespace PresentationTier_HQ
             {
                 //Test each character to make sure it is numeric
                 int count = 0;
-                foreach(char c in txtNHSReg.Text)
+                foreach (char c in txtNHSReg.Text)
                 {
                     count++;
-                    if ((c <'0') || (c > '9'))
+                    if ((c < '0') || (c > '9'))
                     {
                         MessageBox.Show("Error: NHS Registration Number must be numeric. Please try again.");
                         return;
@@ -52,17 +52,17 @@ namespace PresentationTier_HQ
                 }
 
                 //NHS Reg num must be 6 digits
-                if(txtNHSReg.Text.Length != 6)
+                if (txtNHSReg.Text.Length != 6)
                 {
                     MessageBox.Show("Error: NHS Registration Number cannot be greater or less than 6 characters long");
                     return;
                 }
-            
+
 
                 //Store input
                 patient.NHSRegNum = Int32.Parse(txtNHSReg.Text);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Error: Something wrong with NHS Registration Number.");
                 return;
@@ -84,7 +84,7 @@ namespace PresentationTier_HQ
                     patient.FirstName = txtFirstN.Text;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Error: Something went wrong with First Name.");
                 return;
@@ -128,7 +128,7 @@ namespace PresentationTier_HQ
                     patient.Address = txtAddress.Text;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Error: Something went wrong with Address");
                 return;
@@ -139,7 +139,7 @@ namespace PresentationTier_HQ
             try
             {
                 //validate MedCon - cannot be blank
-                if(string.IsNullOrEmpty(txtMedical.Text))
+                if (string.IsNullOrEmpty(txtMedical.Text))
                 {
                     MessageBox.Show("Error: Medical Condition cannot be blank.");
                     return;
@@ -149,7 +149,7 @@ namespace PresentationTier_HQ
                     patient.MedicalCon = txtMedical.Text;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Error: Something went wrong with Medical Condition");
                 return;

@@ -17,12 +17,12 @@ namespace PresentationTier_HQ
 {
     class PatientCheck
     {
-            public DataSet FindPatient(string connectionData)
-            {
-                PatientData patientData = new PatientData();
+        public DataSet FindPatient(string connectionData)
+        {
+            PatientData patientData = new PatientData();
 
-                return patientData.NHSRegNo(connectionData);
-            }
+            return patientData.NHSRegNo(connectionData);
+        }
         
     }
 }
