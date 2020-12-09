@@ -73,11 +73,5 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ApplicationTier\BusinessTier.csproj">
-      <Project>{839053fa-0564-4079-bc4b-430cb9d0e889}</Project>
-      <Name>BusinessTier</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

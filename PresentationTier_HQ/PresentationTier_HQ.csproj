@@ -96,10 +96,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationTier\BusinessTier.csproj">
-      <Project>{839053fa-0564-4079-bc4b-430cb9d0e889}</Project>
-      <Name>BusinessTier</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataTier\DataTier.csproj">
       <Project>{c77fde98-5ec4-4564-b9db-b32ba627c4cd}</Project>
       <Name>DataTier</Name>
