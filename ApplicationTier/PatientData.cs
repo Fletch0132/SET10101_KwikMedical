@@ -14,11 +14,12 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data;
 
+
 namespace ApplicationTier
 {
     public class PatientData
     {
-        public DataSet NHSRegNo(String connectionData)
+        public DataSet NHSRegNo(String connectionString)
         {
             //NHS Registration Number
             string regNo = "";      //Pull this from input
@@ -26,7 +27,7 @@ namespace ApplicationTier
             string selectSQL = "Select NHSRegNum, FirstName, LastName, Street Address, Town, Postcode, MedicalCon from patient where NHSRegNum = '" + regNo + "';";
 
             //connect to database, use query and store
-            SqlConnection connect = new SqlConnection(connectionData);
+            SqlConnection connect = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(selectSQL, connect);
             DataSet dataset = new DataSet();
             adapter.Fill(dataset);

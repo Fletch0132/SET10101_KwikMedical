@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace PresentationTier_HQ
 {
@@ -29,6 +30,7 @@ namespace PresentationTier_HQ
         public MainWindow()
         {
             InitializeComponent();
+            string conn = ConfigurationManager.ConnectionStrings["ConnectionData"].ConnectionString;
         }
 
         //Search button clicked
@@ -154,6 +156,7 @@ namespace PresentationTier_HQ
                 MessageBox.Show("Error: Something went wrong with Medical Condition");
                 return;
             }
+
         }
     }
 }

@@ -4,25 +4,23 @@
 //Start Date: 29/11/2020
 //Last Edit:
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Data;
-using ApplicationTier;
+using PresentationTier_HQ;
+using ApplicationTier;  //Need Application Tier for PatientData -- connects to DataTier
 
 namespace PresentationTier_HQ
 {
     class PatientCheck
     {
-        public DataSet FindPatient(string connectionData)
+        //Retrieves data from DB
+        public DataSet FindPatient(string connectionString)
         {
             PatientData patientData = new PatientData();
 
-            return patientData.NHSRegNo(connectionData);
+            return patientData.NHSRegNo(connectionString);
         }
+
+
         
     }
 }
