@@ -36,7 +36,7 @@ namespace PresentationTier_HQ
         //Search button clicked
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            Patient patient = new Patient();
+            //Patient patient = new Patient();
 
             //NHS Registration Number
             try
@@ -62,7 +62,7 @@ namespace PresentationTier_HQ
 
 
                 //Store input
-                patient.NHSRegNum = Int32.Parse(txtNHSReg.Text);
+                //patient.NHSRegNum = Int32.Parse(txtNHSReg.Text);
             }
             catch (Exception)
             {
@@ -83,7 +83,7 @@ namespace PresentationTier_HQ
                 else
                 {
                     //store input
-                    patient.FirstName = txtFirstN.Text;
+                    //patient.FirstName = txtFirstN.Text;
                 }
             }
             catch (Exception)
@@ -105,7 +105,7 @@ namespace PresentationTier_HQ
                 else
                 {
                     //store input
-                    patient.LastName = txtLastN.Text;
+                    //patient.LastName = txtLastN.Text;
                 }
             }
             catch (Exception)
@@ -127,7 +127,7 @@ namespace PresentationTier_HQ
                 else
                 {
                     //store input
-                    patient.Address = txtAddress.Text;
+                    //patient.Address = txtAddress.Text;
                 }
             }
             catch (Exception)
@@ -148,7 +148,7 @@ namespace PresentationTier_HQ
                 }
                 else
                 {
-                    patient.MedicalCon = txtMedical.Text;
+                    //patient.MedicalCon = txtMedical.Text;
                 }
             }
             catch (Exception)
