@@ -15,12 +15,15 @@ using System.Data.SqlTypes;
 using System.Data;
 
 
+
 namespace ApplicationTier
 {
     public class PatientData
     {
         public DataSet NHSRegNo(String connectionString)
         {
+            
+
             //NHS Registration Number
             string regNo = "";      //Pull this from input
             //SQL Query

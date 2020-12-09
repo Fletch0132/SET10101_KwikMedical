@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1022
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTier", "DataTier\DataTier.csproj", "{C77FDE98-5EC4-4564-B9DB-B32BA627C4CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationTier", "ApplicationTier\ApplicationTier.csproj", "{839053FA-0564-4079-BC4B-430CB9D0E889}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTier", "ApplicationTier\BusinessTier.csproj", "{839053FA-0564-4079-BC4B-430CB9D0E889}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationTier_HQ", "PresentationTier_HQ\PresentationTier_HQ.csproj", "{02E466A3-23A5-4109-9DBA-65FD14AE8636}"
 EndProject
