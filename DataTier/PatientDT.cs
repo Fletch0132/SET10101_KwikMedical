@@ -11,64 +11,53 @@ using BusinessObject;               //Accessing Business Object
 
 namespace DataTier
 {
-    class PatientDT
+    public class PatientDT
     {
-        public static class SqlHelper
+        //Connect to the DB
+        public SqlConnection con = new SqlConnection("Data Source=DESKTOP-M316A5Q\\MSSQLSERVER01;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+        //Check connection open
+        public SqlConnection GetCon()
         {
-            //Connection, command set and execute command
-            public static int ExecuteNonQuery(String connectionString, String commandText, CommandType commandType, params SqlParameter[] parameters)
+            if(con.State == ConnectionState.Closed)
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(commandText, conn))
-                    {
-                        cmd.CommandType = commandType;
-                        cmd.Parameters.AddRange(parameters);
-
-                        conn.Open();
-                        return cmd.ExecuteNonQuery();
-                    }
-                }
+                con.Open();
             }
-
-            //Connection, command set and execute command - only return a value
-            public static Object ExecuteScalar(String connectionString, String commandText, CommandType commandType, params SqlParameter[] parameters)
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(commandText, conn))
-                    {
-                        cmd.CommandType = commandType;
-                        cmd.Parameters.AddRange(parameters);
-
-                        conn.Open();
-                        return cmd.ExecuteScalar();
-                    }
-                }
-            }
-
-            //Connection, command set and exectute command w/ query and return reader
-            public static SqlDataReader ExecuteReader(String connectionString, String commandText, CommandType commandType, params SqlParameter[] parameters)
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-
-                using (SqlCommand cmd = new SqlCommand(commandText, conn))
-                {
-                    cmd.CommandType = commandType;
-                    cmd.Parameters.AddRange(parameters);
-
-                    conn.Open();
-
-                    //CloseConnection - connection closed when DataReader is closed
-                    SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-                    return reader;
-                }
-            }
-
-
+            return con;
         }
 
+        //Perfoms Queries 
+        public int ExeNonQuery(SqlCommand cmd)
+        {
+            cmd.Connection = GetCon();
+            int rowsaffected = -1;
+            rowsaffected = cmd.ExecuteNonQuery();
+            con.Close();
+            return rowsaffected;
+        }
+
+        //Select value 
+        public object ExeScalar(SqlCommand cmd)
+        {
+            cmd.Connection = GetCon();
+            object obj = -1;
+            obj = cmd.ExecuteScalar();
+            con.Close();
+            return obj;
+        }
+
+        //Preform Query
+        public DataTable ExeReader(SqlCommand cmd)
+        {
+            cmd.Connection = GetCon();
+            SqlDataReader sdr;
+            DataTable dt = new DataTable();
+
+            sdr = cmd.ExecuteReader();
+            dt.Load(sdr);
+            con.Close();
+            return dt;
+        }
 
     }
 }
