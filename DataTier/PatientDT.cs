@@ -13,30 +13,62 @@ namespace DataTier
 {
     class PatientDT
     {
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["constring"].ToString());
-
-        public DataSet NHSRegNo(PatientBO ObjBO, String connectionString)
+        public static class SqlHelper
         {
-            try
+            //Connection, command set and execute command
+            public static int ExecuteNonQuery(String connectionString, String commandText, CommandType commandType, params SqlParameter[] parameters)
             {
-                //NHS Registration Number
-                string regNo = "";      //Pull this from input
-                                        //SQL Query
-                string selectSQL = "Select NHSRegNum, FirstName, LastName, Street Address, Town, Postcode, MedicalCon from patient where NHSRegNum = '" + regNo + "';";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(commandText, conn))
+                    {
+                        cmd.CommandType = commandType;
+                        cmd.Parameters.AddRange(parameters);
 
-                //connect to database, use query and store
-                SqlConnection connect = new SqlConnection(connectionString);
-                SqlDataAdapter adapter = new SqlDataAdapter(selectSQL, connect);
-                DataSet dataset = new DataSet();
-                adapter.Fill(dataset);
-
-                return dataset;
+                        conn.Open();
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
             }
-            catch
+
+            //Connection, command set and execute command - only return a value
+            public static Object ExecuteScalar(String connectionString, String commandText, CommandType commandType, params SqlParameter[] parameters)
             {
-                DataSet dataSet = new DataSet();
-                return dataSet;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(commandText, conn))
+                    {
+                        cmd.CommandType = commandType;
+                        cmd.Parameters.AddRange(parameters);
+
+                        conn.Open();
+                        return cmd.ExecuteScalar();
+                    }
+                }
             }
+
+            //Connection, command set and exectute command w/ query and return reader
+            public static SqlDataReader ExecuteReader(String connectionString, String commandText, CommandType commandType, params SqlParameter[] parameters)
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+
+                using (SqlCommand cmd = new SqlCommand(commandText, conn))
+                {
+                    cmd.CommandType = commandType;
+                    cmd.Parameters.AddRange(parameters);
+
+                    conn.Open();
+
+                    //CloseConnection - connection closed when DataReader is closed
+                    SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    return reader;
+                }
+            }
+
+
         }
+
+
     }
 }
