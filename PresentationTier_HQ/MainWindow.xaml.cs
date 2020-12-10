@@ -10,15 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Configuration;
+using System.Windows.Forms;
 
 using System.Data;
 using BusinessObject;
@@ -56,7 +48,7 @@ namespace PresentationTier_HQ
                     count++;
                     if ((c < '0') || (c > '9'))
                     {
-                        MessageBox.Show("Error: NHS Registration Number must be numeric. Please try again.");
+                        System.Windows.MessageBox.Show("Error: NHS Registration Number must be numeric. Please try again.");
                         return;
                     }
                 }
@@ -64,7 +56,7 @@ namespace PresentationTier_HQ
                 //NHS Reg num must be 6 digits
                 if (txtNHSReg.Text.Length != 6)
                 {
-                    MessageBox.Show("Error: NHS Registration Number cannot be greater or less than 6 characters long");
+                    System.Windows.MessageBox.Show("Error: NHS Registration Number cannot be greater or less than 6 characters long");
                     return;
                 }
 
@@ -74,7 +66,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                MessageBox.Show("Error: Something wrong with NHS Registration Number.");
+                System.Windows.MessageBox.Show("Error: Something wrong with NHS Registration Number.");
                 return;
             }
 
@@ -85,7 +77,7 @@ namespace PresentationTier_HQ
                 //Validate First Name - Cannot be blank
                 if (string.IsNullOrEmpty(txtFirstN.Text))
                 {
-                    MessageBox.Show("Error: First name cannot be blank.");
+                    System.Windows.MessageBox.Show("Error: First name cannot be blank.");
                     return;
                 }
                 else
@@ -96,7 +88,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                MessageBox.Show("Error: Something went wrong with First Name.");
+                System.Windows.MessageBox.Show("Error: Something went wrong with First Name.");
                 return;
             }
 
@@ -107,7 +99,7 @@ namespace PresentationTier_HQ
                 //Validate Last Name - Cannot be blank
                 if (string.IsNullOrEmpty(txtLastN.Text))
                 {
-                    MessageBox.Show("Error: Last name cannot be blank.");
+                    System.Windows.MessageBox.Show("Error: Last name cannot be blank.");
                     return;
                 }
                 else
@@ -118,7 +110,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                MessageBox.Show("Error: Something went wrong with Last Name.");
+                System.Windows.MessageBox.Show("Error: Something went wrong with Last Name.");
                 return;
             }
 
@@ -129,7 +121,7 @@ namespace PresentationTier_HQ
                 //Validate Address - Cannot be blank
                 if (string.IsNullOrEmpty(txtAddress.Text))
                 {
-                    MessageBox.Show("Error: Address cannot be blank.");
+                    System.Windows.MessageBox.Show("Error: Address cannot be blank.");
                     return;
                 }
                 else
@@ -140,7 +132,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                MessageBox.Show("Error: Something went wrong with Address");
+                System.Windows.MessageBox.Show("Error: Something went wrong with Address");
                 return;
             }
 
@@ -150,7 +142,7 @@ namespace PresentationTier_HQ
             {
                 if (string.IsNullOrEmpty(txtTown.Text))
                 {
-                    MessageBox.Show("Error: Town cannot be blank.");
+                    System.Windows.MessageBox.Show("Error: Town cannot be blank.");
                     return;
                 }
                 else
@@ -161,7 +153,7 @@ namespace PresentationTier_HQ
             }
             catch(Exception)
             {
-                MessageBox.Show("Error: Something went wrong with Town");
+                System.Windows.MessageBox.Show("Error: Something went wrong with Town");
                 return;
             }
 
@@ -171,12 +163,12 @@ namespace PresentationTier_HQ
             {
                 if (string.IsNullOrEmpty(txtPostcode.Text))
                 {
-                    MessageBox.Show("Error: Postcode cannot be blank.");
+                    System.Windows.MessageBox.Show("Error: Postcode cannot be blank.");
                     return;
                 }
                 else if (txtPostcode.Text.Length != 7)
                 {
-                    MessageBox.Show("Error: Postcode cannot be greater or less than 6 characters long");
+                    System.Windows.MessageBox.Show("Error: Postcode cannot be greater or less than 6 characters long");
                     return;
                 }
                 else
@@ -187,7 +179,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                MessageBox.Show("Error: Something went wrong with Postcode");
+                System.Windows.MessageBox.Show("Error: Something went wrong with Postcode");
                 return;
             }
 
@@ -198,7 +190,7 @@ namespace PresentationTier_HQ
                 //validate MedCon - cannot be blank
                 if (string.IsNullOrEmpty(txtMedical.Text))
                 {
-                    MessageBox.Show("Error: Medical Condition cannot be blank.");
+                    System.Windows.MessageBox.Show("Error: Medical Condition cannot be blank.");
                     return;
                 }
                 else
@@ -208,7 +200,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                MessageBox.Show("Error: Something went wrong with Medical Condition");
+                System.Windows.MessageBox.Show("Error: Something went wrong with Medical Condition");
                 return;
             }
             #endregion
@@ -217,13 +209,14 @@ namespace PresentationTier_HQ
 
             try
             {
-                dt = pbt.PatientDT(pbt);
-                MessageBox.Show("Patient Found!");
+                this.Hide();
+                PatientDisplay pdy = new PatientDisplay();
+                pdy.MdiParent = this;
+                pdy.Show();
             }
             catch(Exception)
             {
-                MessageBox.Show("Patient not found!");
-                return;
+                
             }
 
             #endregion
