@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PresentationTier_HQ"
         mc:Ignorable="d"
-        Title="KwikMedical" Height="420" Width="550">
+        Title="KwikMedical" Height="520" Width="550">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>      <!--Border 0-->
@@ -20,8 +20,10 @@
             <RowDefinition Height="60"/>        <!--FName 2-->
             <RowDefinition Height="60"/>        <!--LName 3-->
             <RowDefinition Height="60"/>        <!--Address 4-->
-            <RowDefinition Height="110"/>       <!--MedicalCondition 5-->
-            <RowDefinition Height="20"/>        <!--Border 6-->
+            <RowDefinition Height="60"/>        <!--Town 5-->
+            <RowDefinition Height="60"/>        <!--PostCode 6-->
+            <RowDefinition Height="110"/>       <!--MedicalCondition 7-->
+            <RowDefinition Height="20"/>        <!--Border 8-->
         </Grid.RowDefinitions>
         
         <!--NHSRegNo-->
@@ -57,12 +59,28 @@
         <StackPanel Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="txtAddress" Width="220" Height="40" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
         </StackPanel>
-        
-        <!--MedicalCon-->
+
+        <!--Town-->
         <StackPanel Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Label Margin="0,0,10,5">Medical Condition:</Label>
+            <Label Margin="0,0,10,5">Town:</Label>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtTown" Width="220" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+
+        <!--PostCode-->
+        <StackPanel Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Postcode:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtPostcode" Width="220"  HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+
+        <!--MedicalCon-->
+        <StackPanel Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Medical Condition:</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="txtMedical" Width="220" Height="90" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBox>
         </StackPanel>
         

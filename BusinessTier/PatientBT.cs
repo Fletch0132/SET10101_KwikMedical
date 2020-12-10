@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DataTier;
 using BusinessObject;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BusinessTier
 {
@@ -13,5 +15,15 @@ namespace BusinessTier
         //Objects for PatientDT and PatientBO
         public PatientDT pdt = new PatientDT();
         public PatientBO pbo = new PatientBO();
+
+        /*Insert Query if needed
+        public int Insert(PatientBO pbo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "insert into patient";
+        }*/
+
+
     }
 }

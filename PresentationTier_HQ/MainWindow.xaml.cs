@@ -42,7 +42,7 @@ namespace PresentationTier_HQ
         //Search button clicked
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            //Patient patient = new Patient();
+            PatientBO pbo = new PatientBO();
 
             //NHS Registration Number
             try
@@ -68,7 +68,7 @@ namespace PresentationTier_HQ
 
 
                 //Store input
-                //patient.NHSRegNum = Int32.Parse(txtNHSReg.Text);
+                pbo.NHSRegNum = Int32.Parse(txtNHSReg.Text);
             }
             catch (Exception)
             {
@@ -89,7 +89,7 @@ namespace PresentationTier_HQ
                 else
                 {
                     //store input
-                    //patient.FirstName = txtFirstN.Text;
+                    pbo.FirstName = txtFirstN.Text;
                 }
             }
             catch (Exception)
@@ -111,7 +111,7 @@ namespace PresentationTier_HQ
                 else
                 {
                     //store input
-                    //patient.LastName = txtLastN.Text;
+                    pbo.LastName = txtLastN.Text;
                 }
             }
             catch (Exception)
@@ -133,12 +133,59 @@ namespace PresentationTier_HQ
                 else
                 {
                     //store input
-                    //patient.Address = txtAddress.Text;
+                    pbo.Address = txtAddress.Text;
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("Error: Something went wrong with Address");
+                return;
+            }
+
+
+            //Town
+            try
+            {
+                if (string.IsNullOrEmpty(txtTown.Text))
+                {
+                    MessageBox.Show("Error: Town cannot be blank.");
+                    return;
+                }
+                else
+                {
+                    //store input
+                    pbo.Town = txtTown.Text;
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Error: Something went wrong with Town");
+                return;
+            }
+
+
+            //Postcode
+            try
+            {
+                if (string.IsNullOrEmpty(txtPostcode.Text))
+                {
+                    MessageBox.Show("Error: Postcode cannot be blank.");
+                    return;
+                }
+                else if (txtPostcode.Text.Length != 7)
+                {
+                    MessageBox.Show("Error: Postcode cannot be greater or less than 6 characters long");
+                    return;
+                }
+                else
+                {
+                    //store input
+                    pbo.Postcode = txtPostcode.Text;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error: Something went wrong with Postcode");
                 return;
             }
 
@@ -154,7 +201,7 @@ namespace PresentationTier_HQ
                 }
                 else
                 {
-                    //patient.MedicalCon = txtMedical.Text;
+                    pbo.MedicalCon = txtMedical.Text;
                 }
             }
             catch (Exception)

@@ -10,7 +10,7 @@ namespace BusinessObject
     {
         //private variables
         private int nhsRegNum;
-        private string firstName, lastName, address, medicalCon;
+        private string firstName, lastName, address, town, postcode, medicalCon;
 
         //get-set
         public int NHSRegNum
@@ -35,6 +35,18 @@ namespace BusinessObject
         {
             get { return address; }
             set { address = value; }
+        }
+
+        public string Town
+        {
+            get { return town; }
+            set { town = value; }
+        }
+
+        public string Postcode
+        {
+            get { return postcode; }
+            set { postcode = value; }
         }
 
         public string MedicalCon
