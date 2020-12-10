@@ -20,6 +20,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 
+
+using BusinessObject;
+using BusinessTier; 
+
 namespace PresentationTier_HQ
 {
     /// <summary>
@@ -27,10 +31,12 @@ namespace PresentationTier_HQ
     /// </summary>
     public partial class MainWindow : Window
     {
+        public PatientBO pbo = new PatientBO();
+        public PatientBT pbt = new PatientBT();
+
         public MainWindow()
         {
             InitializeComponent();
-            string conn = ConfigurationManager.ConnectionStrings["ConnectionData"].ConnectionString;
         }
 
         //Search button clicked

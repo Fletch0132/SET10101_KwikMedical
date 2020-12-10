@@ -71,6 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
+      <Project>{80a7a8d5-6401-41d2-b856-4bbb2475daa3}</Project>
+      <Name>BusinessObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataTier\DataTier.csproj">
       <Project>{c77fde98-5ec4-4564-b9db-b32ba627c4cd}</Project>
       <Name>DataTier</Name>

@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using System.Data;                  //DataSet
 using System.Data.SqlClient;        //SQL
 using System.Configuration;         //Connection
-using BusinessObject;               //Accessing Business Object
 
 namespace DataTier
 {
     public class PatientDT
     {
         //Connect to the DB
-        public SqlConnection con = new SqlConnection("Data Source=DESKTOP-M316A5Q\\MSSQLSERVER01;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        public SqlConnection con = new SqlConnection("Data Source=DESKTOP-M316A5Q\\MSSQLSERVER01;Initial Catalog=KwikMedical;Integrated Security=True");
 
         //Check connection open
         public SqlConnection GetCon()

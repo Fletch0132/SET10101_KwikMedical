@@ -100,11 +100,5 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
-      <Project>{80a7a8d5-6401-41d2-b856-4bbb2475daa3}</Project>
-      <Name>BusinessObject</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

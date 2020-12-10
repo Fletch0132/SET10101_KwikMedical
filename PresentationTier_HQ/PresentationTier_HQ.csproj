@@ -58,6 +58,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -66,6 +67,7 @@
     <Reference Include="System.Runtime.InteropServices" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Threading.Thread" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -124,9 +126,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataTier\DataTier.csproj">
-      <Project>{c77fde98-5ec4-4564-b9db-b32ba627c4cd}</Project>
-      <Name>DataTier</Name>
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
+      <Project>{80a7a8d5-6401-41d2-b856-4bbb2475daa3}</Project>
+      <Name>BusinessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessTier\BusinessTier.csproj">
+      <Project>{98f04981-8c39-4025-a570-fe937009db46}</Project>
+      <Name>BusinessTier</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
