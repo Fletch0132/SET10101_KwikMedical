@@ -20,7 +20,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 
-
+using System.Data;
 using BusinessObject;
 using BusinessTier; 
 
@@ -34,16 +34,18 @@ namespace PresentationTier_HQ
         public PatientBO pbo = new PatientBO();
         public PatientBT pbt = new PatientBT();
 
+        DataTable dt = new DataTable();
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        
         //Search button clicked
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            PatientBO pbo = new PatientBO();
-
+            #region Validate Input
             //NHS Registration Number
             try
             {
@@ -209,7 +211,22 @@ namespace PresentationTier_HQ
                 MessageBox.Show("Error: Something went wrong with Medical Condition");
                 return;
             }
+            #endregion
 
+            #region Found Data
+
+            try
+            {
+                dt = pbt.PatientDT(pbt);
+                MessageBox.Show("Patient Found!");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Patient not found!");
+                return;
+            }
+
+            #endregion
         }
     }
 }
