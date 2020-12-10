@@ -1,27 +1,21 @@
-﻿//Author: Fletcher Thomas Moore
-//Name: MainWindow.xaml.cs
-//Description: HQ UI that validates input patient data
-//Start Date: 29/11/2020
-//Last Edit:
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
+using System.Windows;
 
-using System.Data;
 using BusinessObject;
-using BusinessTier; 
+using BusinessTier;
+using WindowsFormsApp1;
 
-namespace PresentationTier_HQ
+namespace MainWindow
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Form
     {
         public PatientBO pbo = new PatientBO();
         public PatientBT pbt = new PatientBT();
@@ -33,9 +27,7 @@ namespace PresentationTier_HQ
             InitializeComponent();
         }
 
-        
-        //Search button clicked
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             #region Validate Input
             //NHS Registration Number
@@ -48,7 +40,7 @@ namespace PresentationTier_HQ
                     count++;
                     if ((c < '0') || (c > '9'))
                     {
-                        System.Windows.MessageBox.Show("Error: NHS Registration Number must be numeric. Please try again.");
+                        MessageBox.Show("Error: NHS Registration Number must be numeric. Please try again.");
                         return;
                     }
                 }
@@ -56,7 +48,7 @@ namespace PresentationTier_HQ
                 //NHS Reg num must be 6 digits
                 if (txtNHSReg.Text.Length != 6)
                 {
-                    System.Windows.MessageBox.Show("Error: NHS Registration Number cannot be greater or less than 6 characters long");
+                    MessageBox.Show("Error: NHS Registration Number cannot be greater or less than 6 characters long");
                     return;
                 }
 
@@ -66,7 +58,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something wrong with NHS Registration Number.");
+                MessageBox.Show("Error: Something wrong with NHS Registration Number.");
                 return;
             }
 
@@ -77,7 +69,7 @@ namespace PresentationTier_HQ
                 //Validate First Name - Cannot be blank
                 if (string.IsNullOrEmpty(txtFirstN.Text))
                 {
-                    System.Windows.MessageBox.Show("Error: First name cannot be blank.");
+                    MessageBox.Show("Error: First name cannot be blank.");
                     return;
                 }
                 else
@@ -88,7 +80,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something went wrong with First Name.");
+                MessageBox.Show("Error: Something went wrong with First Name.");
                 return;
             }
 
@@ -99,7 +91,7 @@ namespace PresentationTier_HQ
                 //Validate Last Name - Cannot be blank
                 if (string.IsNullOrEmpty(txtLastN.Text))
                 {
-                    System.Windows.MessageBox.Show("Error: Last name cannot be blank.");
+                    MessageBox.Show("Error: Last name cannot be blank.");
                     return;
                 }
                 else
@@ -110,7 +102,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something went wrong with Last Name.");
+                MessageBox.Show("Error: Something went wrong with Last Name.");
                 return;
             }
 
@@ -121,7 +113,7 @@ namespace PresentationTier_HQ
                 //Validate Address - Cannot be blank
                 if (string.IsNullOrEmpty(txtAddress.Text))
                 {
-                    System.Windows.MessageBox.Show("Error: Address cannot be blank.");
+                    MessageBox.Show("Error: Address cannot be blank.");
                     return;
                 }
                 else
@@ -132,7 +124,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something went wrong with Address");
+                MessageBox.Show("Error: Something went wrong with Address");
                 return;
             }
 
@@ -142,7 +134,7 @@ namespace PresentationTier_HQ
             {
                 if (string.IsNullOrEmpty(txtTown.Text))
                 {
-                    System.Windows.MessageBox.Show("Error: Town cannot be blank.");
+                    MessageBox.Show("Error: Town cannot be blank.");
                     return;
                 }
                 else
@@ -151,9 +143,9 @@ namespace PresentationTier_HQ
                     pbo.Town = txtTown.Text;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something went wrong with Town");
+                MessageBox.Show("Error: Something went wrong with Town");
                 return;
             }
 
@@ -163,12 +155,12 @@ namespace PresentationTier_HQ
             {
                 if (string.IsNullOrEmpty(txtPostcode.Text))
                 {
-                    System.Windows.MessageBox.Show("Error: Postcode cannot be blank.");
+                    MessageBox.Show("Error: Postcode cannot be blank.");
                     return;
                 }
                 else if (txtPostcode.Text.Length != 7)
                 {
-                    System.Windows.MessageBox.Show("Error: Postcode cannot be greater or less than 6 characters long");
+                    MessageBox.Show("Error: Postcode cannot be greater or less than 6 characters long");
                     return;
                 }
                 else
@@ -179,7 +171,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something went wrong with Postcode");
+                MessageBox.Show("Error: Something went wrong with Postcode");
                 return;
             }
 
@@ -190,7 +182,7 @@ namespace PresentationTier_HQ
                 //validate MedCon - cannot be blank
                 if (string.IsNullOrEmpty(txtMedical.Text))
                 {
-                    System.Windows.MessageBox.Show("Error: Medical Condition cannot be blank.");
+                    MessageBox.Show("Error: Medical Condition cannot be blank.");
                     return;
                 }
                 else
@@ -200,7 +192,7 @@ namespace PresentationTier_HQ
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error: Something went wrong with Medical Condition");
+                MessageBox.Show("Error: Something went wrong with Medical Condition");
                 return;
             }
             #endregion
@@ -214,9 +206,9 @@ namespace PresentationTier_HQ
                 pdy.MdiParent = this;
                 pdy.Show();
             }
-            catch(Exception)
+            catch (Exception)
             {
-                
+
             }
 
             #endregion
