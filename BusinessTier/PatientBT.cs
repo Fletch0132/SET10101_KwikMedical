@@ -19,7 +19,6 @@ namespace BusinessTier
 
         public DataTable PatientDisplay(PatientBO pbo)
         {
-
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from patient where NHSRegNum = "+pbo.NHSRegNum+";";
