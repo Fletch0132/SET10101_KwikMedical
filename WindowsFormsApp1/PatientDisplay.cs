@@ -26,12 +26,18 @@ namespace WindowsFormsApp1
         {
             
             DataTable dt = new DataTable();
+            
             dt = pbt.PatientDisplay(pbo);
 
             if (dt.Rows.Count > 0)
             {
                 dgvPatientDisplay.DataSource = dt;
                 this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Patient not found!");
+                return;
             }
         }
     }
