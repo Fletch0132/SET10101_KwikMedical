@@ -23,9 +23,6 @@ namespace MainWindow
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //temp
-            int nhs;
-
             #region Validate Input
             //NHS Registration Number
             try
@@ -52,7 +49,6 @@ namespace MainWindow
 
                 //Store input
                 pbo.NHSRegNum = Int32.Parse(txtNHSReg.Text);
-                nhs = Int32.Parse(txtNHSReg.Text);
             }
             catch (Exception)
             {
