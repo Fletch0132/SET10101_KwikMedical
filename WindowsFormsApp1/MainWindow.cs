@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows;
+
 
 using BusinessObject;
 using BusinessTier;
@@ -160,7 +154,7 @@ namespace MainWindow
                 }
                 else if (txtPostcode.Text.Length != 7)
                 {
-                    MessageBox.Show("Error: Postcode cannot be greater or less than 6 characters long");
+                    MessageBox.Show("Error: Postcode cannot be greater or less than 7 characters long");
                     return;
                 }
                 else
@@ -208,7 +202,9 @@ namespace MainWindow
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Patient not found!");
+                this.Show();
+                return;
             }
 
             #endregion

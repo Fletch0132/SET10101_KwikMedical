@@ -48,6 +48,7 @@
             this.Controls.Add(this.dgvPatientDisplay);
             this.Name = "PatientDisplay";
             this.Text = "PatientDisplay";
+            this.Load += new System.EventHandler(this.PatientDisplay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatientDisplay)).EndInit();
             this.ResumeLayout(false);
 

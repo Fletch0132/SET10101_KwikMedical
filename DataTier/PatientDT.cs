@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Data;                  //DataSet
 using System.Data.SqlClient;        //SQL
-using System.Configuration;         //Connection
+
 
 namespace DataTier
 {
